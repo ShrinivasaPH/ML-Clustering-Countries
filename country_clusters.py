@@ -21,32 +21,33 @@ st.caption("Type or use the buttons.")
 col1, col2 = st.columns(2)
 
 #slider
-child_mort = col1.number_input("Select or Type the child mortality:",
+child_mort = col1.slider("Select the child mortality:",
                          0, 208)
-exports = col2.number_input("Select or Type the export value:",
+exports = col2.slider("Select the average export value:",
                       0, 200, step=1)
-health = col1.number_input("Select or Type the Health-Spending value:",
+health = col1.slider("Select the Health-Spending value:",
                          0, 15, step=1)
-imports = col2.number_input("Select or Type the import value:",
+imports = col2.slider("Select the import value:",
                       0, 175, step=1)
-income = col1.number_input("Select or Type the income value:",
+income = col1.slider("Select the income value:",
                       600, 52000, step=10)
-inflation = col2.number_input("Select or Type the inflation value:",
+inflation = col2.slider("Select the inflation value:",
                       0, 25, step=1)
-life_expec = col1.number_input("Select or Type the Life Expectency value:",
+life_expec = col1.slider("Select the Life Expectency value:",
                          32, 83, step=1)
-total_fer = col2.number_input("Select or Type the fertility value:",
+total_fer = col2.slider("Select the fertility value:",
                       0, 8, step=1)
 
 less_earners = col1.toggle("Underpaid workers: (Yes: 1, No: 0)")
                           
+#less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
 
-less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
+high_child_mort = col2.toggle("High Child Mortality: ")
+                   
 
-high_child_mort = col1.toggle("High Child Mortality: (Yes: 1, No: 0)")
-                              
-
-
+#less_earners = 1
+#less_life_expectancy = 1
+#high_child_mort = 1
 
 def reset_inputs():
     for key in st.session_state.keys():
@@ -57,7 +58,8 @@ st.subheader("Click the below button to see the country's social status.")
 if st.button("Predict Country Type"):
     col1, col2 = st.columns(2)
 
-    input_data = np.array([5, 45, 3, 54, 3500, 20, 70, 3, less_earners, less_life_expectancy, high_child_mort]).reshape(1, -1)
+    input_data = np.array([child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
+                            less_earners, high_child_mort]).reshape(1, -1)
 
     pred = model.predict(input_data)
 
@@ -87,8 +89,8 @@ if st.button("Predict Country Type"):
                 width: 50%; margin: auto; text-align: center;">
         <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
         <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
-            <li><span style="color: #007bff; font-weight: bold;">0 - Developing Nation</span> 🌱</li>
-            <li><span style="color: #ff5733; font-weight: bold;">1 - Poor Nation</span> ⚠️</li>
+            <li><span style="color: #007bff; font-weight: bold;">0 - Poor Nation</span> 🌱</li>
+            <li><span style="color: #ff5733; font-weight: bold;">1 - Developing Nation</span> ⚠️</li>
             <li><span style="color: #28a745; font-weight: bold;">2 - Rich Nation</span> 💰</li>
         </ul>
     </div>
