@@ -38,7 +38,7 @@ life_expec = col1.slider("Select the Life Expectency value:",
 total_fer = col2.slider("Select the fertility value:",
                       0, 8, step=1)
 
-less_earners = col1.toggle("Underpaid workers: (Yes: 1, No: 0)")
+less_earners = col1.toggle("Underpaid workers:")
                           
 #less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
 
