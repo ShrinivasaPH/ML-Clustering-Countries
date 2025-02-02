@@ -21,31 +21,30 @@ st.caption("Type or use the buttons.")
 col1, col2 = st.columns(2)
 
 #slider
-child_mort = col1.number_input("Select the child mortality:",
+child_mort = col1.number_input("Select or Type the child mortality:",
                          0, 208)
-exports = col2.number_input("Select the export value:",
+exports = col2.number_input("Select or Type the export value:",
                       0, 200, step=1)
-health = col1.number_input("Select the Health-Spending value:",
+health = col1.number_input("Select or Type the Health-Spending value:",
                          0, 15, step=1)
-imports = col2.number_input("Select the import value:",
+imports = col2.number_input("Select or Type the import value:",
                       0, 175, step=1)
-income = col1.number_input("Select the income value:",
+income = col1.number_input("Select or Type the income value:",
                       600, 52000, step=10)
-inflation = col2.number_input("Select the inflation value:",
+inflation = col2.number_input("Select or Type the inflation value:",
                       0, 25, step=1)
-life_expec = col1.number_input("Select the Life Expectency value:",
+life_expec = col1.number_input("Select or Type the Life Expectency value:",
                          32, 83, step=1)
-total_fer = col2.number_input("Select the fertility value:",
+total_fer = col2.number_input("Select or Type the fertility value:",
                       0, 8, step=1)
 
-less_earners = col1.radio("Underpaid workers: (Yes: 1, No: 0)",
-                          options=[1, 0], index=1)  # Default to 'No' (0)
+less_earners = col1.toggle("Underpaid workers: (Yes: 1, No: 0)")
+                          
 
-less_life_expectancy = col2.radio("Less Life Expectancy: (Yes: 1, No: 0)",
-                                  options=[1, 0], index=1)  # Default to 'No' (0)
+less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
 
-high_child_mort = col1.radio("High Child Mortality: (Yes: 1, No: 0)",
-                             options=[1, 0], index=1)  # Default to 'No' (0)
+high_child_mort = col1.toggle("High Child Mortality: (Yes: 1, No: 0)")
+                              
 
 
 
@@ -66,12 +65,42 @@ if st.button("Predict Country Type"):
 #    reset_inputs()
 #    st.rerun()
 
-    st.title("Your Country's Cluster based on your selected parameters:")
-    st.header(pred)
-    st.subheader(" ", divider="gray")
-    st.write("Developing Nation:0") 
-    st.write("Poor Nation:1")
-    st.write("Rich Nation:2")
+    st.header("The Country's Cluster based on the selected socio-economic parameters:")
+
+    st.markdown(
+    f"""
+    <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
+                text-align:center; font-size:18px; font-weight:bold; color:black; 
+                width: 40%; margin: auto;">
+        🔮 Predicted Cluster: {pred[0]}
+    </div>
+    """, unsafe_allow_html=True
+)
+
+
+
+    st.write(" ")
+
+    st.markdown(
+    """
+    <div style="border: 2px solid #ccc; padding: 10px; border-radius: 10px; background-color: #f9f9f9;
+                width: 50%; margin: auto; text-align: center;">
+        <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
+        <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
+            <li><span style="color: #007bff; font-weight: bold;">0 - Developing Nation</span> 🌱</li>
+            <li><span style="color: #ff5733; font-weight: bold;">1 - Poor Nation</span> ⚠️</li>
+            <li><span style="color: #28a745; font-weight: bold;">2 - Rich Nation</span> 💰</li>
+        </ul>
+    </div>
+    """, 
+    unsafe_allow_html=True
+)
+
+
+   
+   
+
+    
 
 
 st.divider()
