@@ -12,6 +12,7 @@ with open("gmm_model.pkl", 'rb') as f:
 df = pd.read_csv('Country-data.csv')
 st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 st.dataframe(df.head())
+st.caption("Sample view of the dataset")
 
 st.divider() 
 #st.header("  ")
