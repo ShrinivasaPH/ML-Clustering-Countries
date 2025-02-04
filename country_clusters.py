@@ -64,10 +64,6 @@ if st.button("Predict Country Type"):
 
     pred = model.predict(input_data)
 
-#if st.button("Reset"):
-#    reset_inputs()
-#    st.rerun()
-
     st.header("The Country's Cluster based on the selected socio-economic parameters:")
 
     st.markdown(
