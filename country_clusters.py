@@ -5,7 +5,7 @@ import pickle
 
 
 #load the model from disk
-with open("dbsc.pkl", 'rb') as f:
+with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
 
 
