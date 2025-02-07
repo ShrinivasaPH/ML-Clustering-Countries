@@ -23,7 +23,7 @@ st.caption("Type or use the buttons.")
 col1, col2 = st.columns(2)
 
 #slider
-child_mort = col1.number_input("Select the Child Mortality Rate:",
+child_mort = col1.number_input("Select the Child Mortality Rate.:",
                          2.6, 142.857)
 exports = col2.number_input("Select the Export value:",
                       0.1090, 92.6750)
