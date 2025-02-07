@@ -2,69 +2,86 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-from sklearn.preprocessing import StandardScaler
 
-# Load the trained GMM model
+
+#load the model from disk
 with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
 
-# Load the same scaler used during training
-with open("scaler.pkl", 'rb') as f:
-    scaler = pickle.load(f)
 
-# Load dataset for reference
-st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 df = pd.read_csv('Country-data.csv')
+st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 st.dataframe(df.head())
 st.caption("Sample view of the dataset.")
 
-st.divider()
+st.divider() 
+#st.header("  ")
 st.header(":blue[**Select socio-economic parameters below:**]")
+st.caption("Type or use the buttons.")
 
-# User input fields
 col1, col2 = st.columns(2)
 
-child_mort = col1.number_input("Child Mortality Rate:", 2.6, 142.857)
-exports = col2.number_input("Exports (% of GDP):", 0.1090, 92.6750)
-health = col1.number_input("Health Spending (% of GDP):", 1.8100, 14.1200)
-imports = col2.number_input("Imports (% of GDP):", 0.0659, 101.5750)
-income = col1.number_input("Income per Capita:", 609.0000, 51967.5000)
-inflation = col2.number_input("Inflation Rate:", -4.2100, 24.1600)
-life_expec = col1.number_input("Life Expectancy:", 48.0500, 82.8000)
-total_fer = col2.number_input("Fertility Rate:", 1.1500, 7.0075)
+#slider
+child_mort = col1.number_input("Select the child mortality:",
+                         2.6, 142.857)
+exports = col2.number_input("Select the average export value:",
+                      0.1090, 92.6750)
+health = col1.number_input("Select the Health-Spending value:",
+                         1.8100, 14.1200)
+imports = col2.number_input("Select the import value:",
+                      0.0659, 101.5750)
+income = col1.number_input("Select the income value:",
+                      609.0000, 51967.5000)
+inflation = col2.number_input("Select the inflation value:",
+                      -4.2100, 24.1600)
+life_expec = col1.number_input("Select the Life Expectency value:",
+                         48.0500, 82.8000)
+total_fer = col2.number_input("Select the fertility value:",
+                      1.1500, 7.0075)
 
-less_earners = col1.toggle("Underpaid Workers")
-high_child_mort = col2.toggle("High Child Mortality")
+less_earners = col1.toggle("Underpaid workers:")
+                          
+#less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
 
-# Convert binary toggles to numerical values
-less_earners = 1 if less_earners else 0
-high_child_mort = 1 if high_child_mort else 0
+high_child_mort = col2.toggle("High Child Mortality: ")
+                   
 
-st.subheader("Click below to see the country's economic cluster.")
+#less_earners = 1
+#less_life_expectancy = 1
+#high_child_mort = 1
+
+def reset_inputs():
+    for key in st.session_state.keys():
+        if key.startswith("input_"):  # Reset only input fields
+            st.session_state[key] = 0
+
+st.subheader("Click the below button to see the country's social status.")
 if st.button("Predict Country Type"):
-    # Prepare input data as a numpy array
-    input_data = np.array([[child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
-                            less_earners, high_child_mort]])
-    
-    # Scale the input data using the same scaler
-    input_scaled = scaler.transform(input_data)
-    
-    # Predict the cluster
-    pred = model.predict(input_scaled)
-    
-    # Display the result
-    st.header("The Country's Cluster Based on Socio-Economic Parameters:")
-    
-    st.markdown(f"""
+    col1, col2 = st.columns(2)
+
+    input_data = np.array([child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
+                            less_earners, high_child_mort]).reshape(1, -1)
+
+    pred = model.predict(input_data)
+
+    st.header("The Country's Cluster based on the selected socio-economic parameters:")
+
+    st.markdown(
+    f"""
     <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
                 text-align:center; font-size:18px; font-weight:bold; color:black; 
                 width: 40%; margin: auto;">
         🔮 Predicted Cluster: {pred[0]}
     </div>
-    """, unsafe_allow_html=True)
-    
-    # Cluster meanings
-    st.markdown("""
+    """, unsafe_allow_html=True
+)
+
+
+
+    st.write(" ")
+
+    st.markdown(
+    """
     <div style="border: 2px solid #ccc; padding: 10px; border-radius: 10px; background-color: #f9f9f9;
                 width: 50%; margin: auto; text-align: center;">
         <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
@@ -74,13 +91,25 @@ if st.button("Predict Country Type"):
             <li><span style="color: #28a745; font-weight: bold;">2 - Rich Nation</span> 💰</li>
         </ul>
     </div>
-    """, unsafe_allow_html=True)
+    """, 
+    unsafe_allow_html=True
+)
+
+
+   
+   
+
+    
+
 
 st.divider()
 st.markdown("""
 <div style="border: 3px solid #ddd; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 12px; color: #666;">
     <p style="color:red; font-size: 18px; font-weight: bold;"><strong>Disclaimer:</strong></p> 
-    <p>This application is an <strong>academic project</strong> developed for educational purposes only.</p>
-    <p>Users should not rely on this application to make any real-world economic, financial, or policy-related decisions.</p>
+    <p>This application is an <strong>academic project</strong> developed for educational purposes only. The data used in this project and the clustering results generated are based on a machine learning model trained on a specific dataset.</p>
+    <p><strong>Users should not rely on this application to make any real-world economic, financial, or policy-related decisions.</strong> The results do not represent official classifications, and the accuracy of the predictions is not guaranteed.</p>
+    <p>The creator of this application <strong>bears no responsibility</strong> for any consequences, decisions, or actions taken based on the output of this app. Any inconvenience, loss, or harm resulting from the use of this application is entirely at the user's own risk.</p>
+    <p>By using this app, you acknowledge and agree to the terms of this disclaimer.</p>
+    <p>Additionally, for the sake of impartiality and to avoid any potential offense, country names are intentionally omitted from the clustering results. This is to ensure that no individual, group, or nation feels misrepresented or unfairly categorized based on the results. The intention is purely academic and not to make any political, social, or economic statements.</p>
 </div>
 """, unsafe_allow_html=True)
