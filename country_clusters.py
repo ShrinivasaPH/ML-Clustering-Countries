@@ -8,6 +8,7 @@ import pickle
 with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
 
+scaler = model.scaler
 
 df = pd.read_csv('Country-data.csv')
 st.title(":blue[Clustering Economies of Countries using Machine Learning]")
