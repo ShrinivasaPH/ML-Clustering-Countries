@@ -22,21 +22,21 @@ st.caption("Type or use the buttons.")
 col1, col2 = st.columns(2)
 
 #slider
-child_mort = col1.slider("Select the child mortality:",
+child_mort = col1.number_input("Select the child mortality:",
                          2.6, 142.857)
-exports = col2.slider("Select the average export value:",
+exports = col2.number_input("Select the average export value:",
                       0.1090, 92.6750)
-health = col1.slider("Select the Health-Spending value:",
+health = col1.number_input("Select the Health-Spending value:",
                          1.8100, 14.1200)
-imports = col2.slider("Select the import value:",
+imports = col2.number_input("Select the import value:",
                       0.0659, 101.5750)
-income = col1.slider("Select the income value:",
+income = col1.number_input("Select the income value:",
                       609.0000, 51967.5000)
-inflation = col2.slider("Select the inflation value:",
+inflation = col2.number_input("Select the inflation value:",
                       -4.2100, 24.1600)
-life_expec = col1.slider("Select the Life Expectency value:",
+life_expec = col1.number_input("Select the Life Expectency value:",
                          48.0500, 82.8000)
-total_fer = col2.slider("Select the fertility value:",
+total_fer = col2.number_input("Select the fertility value:",
                       1.1500, 7.0075)
 
 less_earners = col1.toggle("Underpaid workers:")
