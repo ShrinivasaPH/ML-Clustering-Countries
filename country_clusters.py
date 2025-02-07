@@ -40,11 +40,11 @@ life_expec = col1.number_input("Select the Life Expectency Rate:",
 total_fer = col2.number_input("Select the Fertility Rate:",
                       1.1500, 7.0075)
 
-less_earners = col1.toggle("Underpaid workers:")
+#less_earners = col1.toggle("Underpaid workers:")
                           
 #less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
 
-high_child_mort = col2.toggle("High Child Mortality: ")
+#high_child_mort = col2.toggle("High Child Mortality: ")
                    
 
 #less_earners = 1
@@ -61,7 +61,7 @@ if st.button("Predict Country Type"):
     col1, col2 = st.columns(2)
 
     input_data = np.array([child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
-                            less_earners, high_child_mort]).reshape(1, -1)
+                            ]).reshape(1, -1)
 
     pred = model.predict(input_data)
 
