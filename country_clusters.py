@@ -23,9 +23,9 @@ col1, col2 = st.columns(2)
 
 #slider
 child_mort = col1.slider("Select the child mortality:",
-                         0, 208)
+                         2.6, 142.857)
 exports = col2.slider("Select the average export value:",
-                      0, 200, step=1)
+                      0.1090, 92.6750)
 health = col1.slider("Select the Health-Spending value:",
                          0, 15, step=1)
 imports = col2.slider("Select the import value:",
