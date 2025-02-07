@@ -39,6 +39,8 @@ life_expec = col1.number_input("Select the Life Expectency Rate:",
                          48.0500, 82.8000)
 total_fer = col2.number_input("Select the Fertility Rate:",
                       1.1500, 7.0075)
+gdpp = col1.number_input("Select GDPP Rate:", 
+                        231.000000, 33130.000000)
 
 #less_earners = col1.toggle("Underpaid workers:")
                           
