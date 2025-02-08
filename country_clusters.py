@@ -41,7 +41,7 @@ total_fer = col2.number_input("Select the Fertility Rate:",
                       1.1500, 7.0075)
 gdpp = col1.number_input("Select GDPP Rate:", 
                         231.000000, 33130.000000)
-net_exp_ratio = col2.number_input("Select Net Export Ratio:", -0.224771, 0.011095)
+net_export_ratio = col2.number_input("Select Net Export Ratio:", -0.224771, 0.011095)
 
 less_earners = col1.toggle("Less Earners:")
                           
@@ -64,7 +64,7 @@ if st.button("Predict Country Type"):
     col1, col2 = st.columns(2)
 
     input_data = np.array([child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
-                            gdpp, net_exp_ratio, less_earners, high_child_mort]).reshape(1, -1)
+                            gdpp, net_export_ratio, less_earners, high_child_mort]).reshape(1, -1)
 
     pred = model.predict(input_data)
 
