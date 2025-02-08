@@ -81,25 +81,6 @@ if st.button("Predict Country Type"):
         """, unsafe_allow_html=True
     )
 
-user_data_scaled = scaler.transform(user_data)
-df['cluster'] = model.predict(user_data_scaled)
-
-# Plot interactive world map
-fig = px.choropleth(df, 
-                    locations="Country", 
-                    color="cluster", 
-                    hover_name="Country", 
-                    color_continuous_scale=px.colors.sequential.Plasma,
-                    title="Clustering Economies of Countries based on Socio-economic Parameters",
-                    labels={"cluster": "Country Cluster"})
-
-# Customize map layout
-fig.update_geos(showcoastlines=True, coastlinecolor="Black", projection_type="natural earth")
-fig.update_layout(autosize=True, geo=dict(showland=True, landcolor="white"))
-
-# Show map in Streamlit app
-st.plotly_chart(fig)
-
 st.divider()
 st.markdown("""
 <div style="border: 3px solid #ddd; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 12px; color: #666;">
