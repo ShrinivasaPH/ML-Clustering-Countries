@@ -15,7 +15,7 @@ scaler = model.scaler
     #    st.title("Country Clusters")
     #pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
     #pg.run()
-st.divider()
+
 st.title(":blue[Clustering the World-Economy using Machine Learning]")
 st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
