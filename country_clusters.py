@@ -60,7 +60,35 @@ def reset_inputs():
         if key.startswith("input_"):  # Reset only input fields
             st.session_state[key] = 0
 '''
+user_data = pd.DataFrame([
+    ['child_mort',
+    'exports',
+    'health',
+    'imports',
+    'income',
+    'inflation',
+    'life_expec',
+    'total_fer',
+    'gdpp',
+    'net_export_ratio',
+    'less_earners',
+    'high_child_mort']
+    ], 
+    columns=[
+    'child_mort',
+    'exports',
+    'health',
+    'imports',
+    'income',
+    'inflation',
+    'life_expec',
+    'total_fer',
+    'gdpp',
+    'net_export_ratio',
+    'less_earners',
+    'high_child_mort'])
 
+user_data_scaled = scaler.transform(user_data)
 
 st.subheader("Click the below button to see the country's social status.")
 if st.button("Predict Country Type"):
@@ -69,7 +97,8 @@ if st.button("Predict Country Type"):
     input_data = np.array([child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
                             gdpp, net_export_ratio, less_earners, high_child_mort]).reshape(1, -1)
 
-    pred = model.predict(input_data)
+    #pred = model.predict(input_data)
+    pred = model.predict(user_data_scaled)[0]
 
     st.header("The Country's Cluster based on the selected socio-economic parameters:")
 
