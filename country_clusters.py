@@ -84,9 +84,9 @@ if st.button("Home"):
 
     st.divider()
 
-    df = pd.read_csv('Country-data.csv')
-    st.dataframe(df)
-    st.caption("Sample view of the dataset.")
+#    df = pd.read_csv('Country-data.csv')
+#    st.dataframe(df)
+#    st.caption("Sample view of the dataset.")
     st.divider()
     st.markdown("""
     <div style="border: 3px solid #ddd; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 12px; color: #666;">
