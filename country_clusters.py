@@ -9,9 +9,13 @@ with open("gmm_model.pkl", 'rb') as f:
 
 scaler = model.scaler
 
-def country_clusters():
-    st.title("Country Clusters")
+df = pd.read_csv('Country-data.csv')
+st.title(":blue[Clustering Economies of Countries using Machine Learning]")
+st.dataframe(df.head())
+st.caption("Sample view of the dataset.")
 
+#def country_clusters():
+#    st.title("Country Clusters")
 
 #pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
 #pg.run()
