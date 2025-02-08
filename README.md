@@ -1,9 +1,3 @@
-# Clustering Economies of Countries
+## About
 
-This project clusters countries based on socio-economic parameters using a **Gaussian Mixture Model (GMM)**. It includes an interactive **Streamlit** app to predict and visualize country clusters (Poor, Developing, or Rich) on a world map.
-
-## Features
-- **GMM Clustering**: Classifies countries into clusters based on socio-economic data.
-- **Streamlit Web App**: Input data and get predictions.
-- **World Map Visualization**: Displays clustering results globally.
-
+This app clusters countries based on socio-economic factors using **Gaussian Mixture Model (GMM)**. Input data like child mortality, income, etc., and get a prediction of whether a country is **Poor**, **Developing**, or **Rich**. The results are visualized on an interactive world map, allowing you to explore global clustering patterns.
