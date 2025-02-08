@@ -3,14 +3,13 @@ import pandas as pd
 import numpy as np
 import pickle
 
+# Load the model from disk
+with open("gmm_model.pkl", 'rb') as f:
+    model = pickle.load(f)
+scaler = model.scaler
+
 if st.button("Home"):
     st.switch_page("country_clusters.py")
-
-    # Load the model from disk
-    with open("gmm_model.pkl", 'rb') as f:
-        model = pickle.load(f)
-
-    scaler = model.scaler
 
     #def country_clusters():
     #    st.title("Country Clusters")
