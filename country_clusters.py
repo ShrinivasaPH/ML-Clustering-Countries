@@ -3,7 +3,11 @@ import pandas as pd
 import numpy as np
 import pickle
 
-st.title("ML Model")
+if st.button("Home"):
+    st.switch_page("country_clusters.py")
+if st.button("Dataset"):
+    st.switch_page("display_dataset.py")
+
 
 # Load the model from disk
 with open("gmm_model.pkl", 'rb') as f:

@@ -2,13 +2,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-def display_dataset():
-    st.title("Country Clusters")
-    
-    df = pd.read_csv('Country-data.csv')
-    st.title(":blue[Clustering Economies of Countries using Machine Learning]")
-    st.dataframe(df.head())
-    st.caption("Sample view of the dataset.")
+def dataset():
+    st.title("DataSet")
 
-# Call the function directly
-display_dataset()
+pg = st.navigation([st.Page("country_clusters.py"), st.Page(dataset)])
+pg.run()
