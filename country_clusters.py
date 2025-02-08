@@ -12,10 +12,10 @@ scaler = model.scaler
 def country_clusters():
     st.title("Country Clusters")
 
-'''
-pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
-pg.run()
-'''
+
+#pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
+#pg.run()
+
 
 st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
