@@ -71,8 +71,8 @@ if st.button("Predict Country Type"):
             <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
             <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
                 <li><span style="color: #007bff; font-weight: bold;">0 - Poor Nation</span> 🌱</li>
-                <li><span style="color: #ff5733; font-weight: bold;">1 - Developing Nation</span> ⚠️</li>
-                <li><span style="color: #28a745; font-weight: bold;">2 - Rich Nation</span> 💰</li>
+                <li><span style="color: #ff5733; font-weight: bold;">1 - Rich Nation</span> ⚠️</li>
+                <li><span style="color: #28a745; font-weight: bold;">2 - Developing Nation</span> 💰</li>
             </ul>
         </div>
         """, unsafe_allow_html=True
