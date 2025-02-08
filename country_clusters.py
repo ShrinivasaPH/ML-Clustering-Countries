@@ -11,7 +11,7 @@ scaler = model.scaler
 
 df = pd.read_csv('Country-data.csv')
 st.title(":blue[Clustering Economies of Countries using Machine Learning]")
-st.dataframe(df.head())
+st.dataframe(df)
 st.caption("Sample view of the dataset.")
 
 #def country_clusters():
