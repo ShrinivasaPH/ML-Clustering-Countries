@@ -10,11 +10,10 @@ with open("gmm_model.pkl", 'rb') as f:
 scaler = model.scaler
 
 def dataset():
-    st.title("Page 2")
+    st.title("Country Clusters")
 
 pg = st.navigation([st.Page("display_dataset.py"), st.Page(dataset)])
 pg.run()
-
 
 
 st.divider()
