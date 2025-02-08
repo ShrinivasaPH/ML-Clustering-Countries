@@ -15,10 +15,7 @@ def dataset():
 pg = st.navigation([st.Page("country_clusters.py"), st.Page(dataset)])
 pg.run()
 
-df = pd.read_csv('Country-data.csv')
-st.title(":blue[Clustering Economies of Countries using Machine Learning]")
-st.dataframe(df.head())
-st.caption("Sample view of the dataset.")
+
 
 st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
