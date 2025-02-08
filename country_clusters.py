@@ -61,6 +61,7 @@ def reset_inputs():
             st.session_state[key] = 0
 '''
 
+
 st.subheader("Click the below button to see the country's social status.")
 if st.button("Predict Country Type"):
     col1, col2 = st.columns(2)
