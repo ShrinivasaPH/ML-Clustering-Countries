@@ -43,7 +43,7 @@ gdpp = col1.number_input("Select GDPP Rate:",
                         231.000000, 33130.000000)
 net_exp_ratio = col2.number_input("Select Net Export Ratio:", -0.224771, 0.011095)
 
-less_earners = col1.toggle("Underpaid workers:")
+less_earners = col1.toggle("Less Earners:")
                           
 #less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
 
