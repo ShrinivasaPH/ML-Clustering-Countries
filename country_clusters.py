@@ -82,7 +82,7 @@ if st.button("Predict Country Type"):
 
 st.divider()
 st.markdown("""
-<div style="border: 3px solid #ddd; padding: 10px; background-color: #lightBlue; border-radius: 5px; font-size: 12px; color: #666;">
+<div style="border: 3px solid #ddd; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 12px; color: #666;">
     <p style="color:red; font-size: 18px; font-weight: bold;"><strong>Disclaimer:</strong></p> 
     <p>This application is an <strong>academic project</strong> developed for educational purposes only. The data used in this project and the clustering results generated are based on a machine learning model trained on a specific dataset.</p>
     <p><strong>Users should not rely on this application to make any real-world economic, financial, or policy-related decisions.</strong> The results do not represent official classifications, and the accuracy of the predictions is not guaranteed.</p>
