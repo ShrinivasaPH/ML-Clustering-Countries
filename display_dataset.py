@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
-
 def display_dataset():
     st.title("Country Clusters")
     df = pd.read_csv('Country-data.csv')
@@ -10,5 +9,5 @@ def display_dataset():
     st.dataframe(df.head())
     st.caption("Sample view of the dataset.")
 
-pg = st.navigation([st.Page("display_dataset.py"), st.Page(display_dataset)])
-pg.run()
+# Call the function directly
+display_dataset()
