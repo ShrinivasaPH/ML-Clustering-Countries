@@ -9,10 +9,10 @@ with open("gmm_model.pkl", 'rb') as f:
 
 scaler = model.scaler
 
-def dataset():
+def country_clusters():
     st.title("Country Clusters")
 
-pg = st.navigation([st.Page("display_dataset.py"), st.Page(dataset)])
+pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
 pg.run()
 
 
