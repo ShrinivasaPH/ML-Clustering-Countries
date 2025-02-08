@@ -3,8 +3,7 @@ import pandas as pd
 import numpy as np
 import pickle
 
-
-#load the model from disk
+# Load the model from disk
 with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
 
@@ -15,128 +14,69 @@ st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 st.dataframe(df.head())
 st.caption("Sample view of the dataset.")
 
-st.divider() 
-#st.header("  ")
+st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
 st.caption("Type or use the buttons.")
 
 col1, col2 = st.columns(2)
 
-#slider
-child_mort = col1.number_input("Select the Child Mortality Rate.:",
-                         2.6, 142.857)
-exports = col2.number_input("Select the Export value:",
-                      0.1090, 92.6750)
-health = col1.number_input("Select the Health-Spending Rate:",
-                         1.8100, 14.1200)
-imports = col2.number_input("Select the Import Rate:",
-                      0.0659, 101.5750)
-income = col1.number_input("Select the Income value:",
-                      609.0000, 51967.5000)
-inflation = col2.number_input("Select the Inflation Rate:",
-                      -4.2100, 24.1600)
-life_expec = col1.number_input("Select the Life Expectency Rate:",
-                         48.0500, 82.8000)
-total_fer = col2.number_input("Select the Fertility Rate:",
-                      1.1500, 7.0075)
-gdpp = col1.number_input("Select GDPP Rate:", 
-                        231.000000, 33130.000000)
+# Slider inputs for the user
+child_mort = col1.number_input("Select the Child Mortality Rate:", 2.6, 142.857)
+exports = col2.number_input("Select the Export value:", 0.1090, 92.6750)
+health = col1.number_input("Select the Health-Spending Rate:", 1.8100, 14.1200)
+imports = col2.number_input("Select the Import Rate:", 0.0659, 101.5750)
+income = col1.number_input("Select the Income value:", 609.0000, 51967.5000)
+inflation = col2.number_input("Select the Inflation Rate:", -4.2100, 24.1600)
+life_expec = col1.number_input("Select the Life Expectancy Rate:", 48.0500, 82.8000)
+total_fer = col2.number_input("Select the Fertility Rate:", 1.1500, 7.0075)
+gdpp = col1.number_input("Select GDPP Rate:", 231.000000, 33130.000000)
 net_export_ratio = col2.number_input("Select Net Export Ratio:", -0.224771, 0.011095)
 
-less_earners = col1.toggle("Less Earners:")
-                          
-#less_life_expectancy = col2.toggle("Less Life Expectancy: (Yes: 1, No: 0)")
+less_earners = col1.checkbox("Less Earners:")
+high_child_mort = col2.checkbox("High Child Mortality:")
 
-high_child_mort = col2.toggle("High Child Mortality: ")
-                   
-
-#less_earners = 1
-#less_life_expectancy = 1
-#high_child_mort = 1
-
-'''
-def reset_inputs():
-    for key in st.session_state.keys():
-        if key.startswith("input_"):  # Reset only input fields
-            st.session_state[key] = 0
-'''
+# Prepare user data for prediction
 user_data = pd.DataFrame([
-    ['child_mort',
-    'exports',
-    'health',
-    'imports',
-    'income',
-    'inflation',
-    'life_expec',
-    'total_fer',
-    'gdpp',
-    'net_export_ratio',
-    'less_earners',
-    'high_child_mort']
-    ], 
-    columns=[
-    'child_mort',
-    'exports',
-    'health',
-    'imports',
-    'income',
-    'inflation',
-    'life_expec',
-    'total_fer',
-    'gdpp',
-    'net_export_ratio',
-    'less_earners',
-    'high_child_mort'])
+    [child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
+     gdpp, net_export_ratio, less_earners, high_child_mort]
+], columns=['child_mort', 'exports', 'health', 'imports', 'income', 'inflation', 'life_expec',
+            'total_fer', 'gdpp', 'net_export_ratio', 'less_earners', 'high_child_mort'])
 
+# Scale the user data
 user_data_scaled = scaler.transform(user_data)
 
 st.subheader("Click the below button to see the country's social status.")
 if st.button("Predict Country Type"):
-    col1, col2 = st.columns(2)
-
-    input_data = np.array([child_mort, exports, health, imports, income, inflation, life_expec, total_fer,
-                            gdpp, net_export_ratio, less_earners, high_child_mort]).reshape(1, -1)
-
-    #pred = model.predict(input_data)
+    # Predict the cluster based on the scaled user data
     pred = model.predict(user_data_scaled)[0]
 
     st.header("The Country's Cluster based on the selected socio-economic parameters:")
 
     st.markdown(
-    f"""
-    <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
-                text-align:center; font-size:18px; font-weight:bold; color:black; 
-                width: 40%; margin: auto;">
-        🔮 Predicted Cluster: {pred[0]}
-    </div>
-    """, unsafe_allow_html=True
-)
-
-
+        f"""
+        <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
+                    text-align:center; font-size:18px; font-weight:bold; color:black; 
+                    width: 40%; margin: auto;">
+            🔮 Predicted Cluster: {pred}
+        </div>
+        """, unsafe_allow_html=True
+    )
 
     st.write(" ")
 
     st.markdown(
-    """
-    <div style="border: 2px solid #ccc; padding: 10px; border-radius: 10px; background-color: #f9f9f9;
-                width: 50%; margin: auto; text-align: center;">
-        <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
-        <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
-            <li><span style="color: #007bff; font-weight: bold;">0 - Poor Nation</span> 🌱</li>
-            <li><span style="color: #ff5733; font-weight: bold;">1 - Developing Nation</span> ⚠️</li>
-            <li><span style="color: #28a745; font-weight: bold;">2 - Rich Nation</span> 💰</li>
-        </ul>
-    </div>
-    """, 
-    unsafe_allow_html=True
-)
-
-
-   
-   
-
-    
-
+        """
+        <div style="border: 2px solid #ccc; padding: 10px; border-radius: 10px; background-color: #f9f9f9;
+                    width: 50%; margin: auto; text-align: center;">
+            <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
+            <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
+                <li><span style="color: #007bff; font-weight: bold;">0 - Poor Nation</span> 🌱</li>
+                <li><span style="color: #ff5733; font-weight: bold;">1 - Developing Nation</span> ⚠️</li>
+                <li><span style="color: #28a745; font-weight: bold;">2 - Rich Nation</span> 💰</li>
+            </ul>
+        </div>
+        """, unsafe_allow_html=True
+    )
 
 st.divider()
 st.markdown("""
