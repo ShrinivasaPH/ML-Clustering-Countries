@@ -11,9 +11,10 @@ scaler = model.scaler
 
 #def country_clusters():
 #    st.title("Country Clusters")
-
 #pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
 #pg.run()
+
+st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
 st.caption("Type or use the buttons.")
@@ -81,7 +82,6 @@ if st.button("Predict Country Type"):
 st.divider()
 
 df = pd.read_csv('Country-data.csv')
-st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 st.dataframe(df)
 st.caption("Sample view of the dataset.")
 st.divider()
