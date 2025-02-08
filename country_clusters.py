@@ -16,7 +16,7 @@ st.caption("Sample view of the dataset.")
 
 st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
-st.caption("Type or use the buttons.")
+st.header("Type or use the buttons.")
 
 col1, col2 = st.columns(2)
 
