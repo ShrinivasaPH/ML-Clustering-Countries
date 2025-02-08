@@ -3,6 +3,8 @@ import pandas as pd
 import numpy as np
 import pickle
 
+st.title("ML Model")
+
 # Load the model from disk
 with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
@@ -95,3 +97,4 @@ st.markdown("""
     <p>Additionally, for the sake of impartiality and to avoid any potential offense, country names are intentionally omitted from the clustering results. This is to ensure that no individual, group, or nation feels misrepresented or unfairly categorized based on the results. The intention is purely academic and not to make any political, social, or economic statements.</p>
 </div>
 """, unsafe_allow_html=True)
+
