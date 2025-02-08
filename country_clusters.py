@@ -9,11 +9,6 @@ with open("gmm_model.pkl", 'rb') as f:
 
 scaler = model.scaler
 
-df = pd.read_csv('Country-data.csv')
-st.title(":blue[Clustering Economies of Countries using Machine Learning]")
-st.dataframe(df)
-st.caption("Sample view of the dataset.")
-
 #def country_clusters():
 #    st.title("Country Clusters")
 
@@ -83,6 +78,12 @@ if st.button("Predict Country Type"):
         """, unsafe_allow_html=True
     )
 
+st.divider()
+
+df = pd.read_csv('Country-data.csv')
+st.title(":blue[Clustering Economies of Countries using Machine Learning]")
+st.dataframe(df)
+st.caption("Sample view of the dataset.")
 st.divider()
 st.markdown("""
 <div style="border: 3px solid #ddd; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 12px; color: #666;">
