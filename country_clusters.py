@@ -2,9 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import pickle
-import plotly.express as px
-import plotly.graph_objects as go
-import geopandas as gpd
 
 # Load the model from disk
 with open("gmm_model.pkl", 'rb') as f:
