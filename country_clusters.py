@@ -9,6 +9,9 @@ with open("gmm_model.pkl", 'rb') as f:
 
 scaler = model.scaler
 
+st.page_link("https://phs-countrycluster-ml.streamlit.app/", label="Home", icon="🏠")
+st.page_link("http://localhost:8501/", label="Dataset", icon="📊")
+
 df = pd.read_csv('Country-data.csv')
 st.title(":blue[Clustering Economies of Countries using Machine Learning]")
 st.dataframe(df.head())
