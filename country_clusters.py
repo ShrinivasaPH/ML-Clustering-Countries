@@ -16,9 +16,8 @@ def country_clusters():
 #pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
 #pg.run()
 
-
-st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
+st.divider()
 st.caption("Type or use the buttons.")
 
 col1, col2 = st.columns(2)
