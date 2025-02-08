@@ -7,7 +7,3 @@ This project clusters countries based on socio-economic parameters using a **Gau
 - **Streamlit Web App**: Input data and get predictions.
 - **World Map Visualization**: Displays clustering results globally.
 
-## Installation
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/your-username/Clustering-Economies.git
