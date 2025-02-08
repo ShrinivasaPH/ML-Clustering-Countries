@@ -12,7 +12,7 @@ scaler = model.scaler
 def dataset():
     st.title("Page 2")
 
-pg = st.navigation([st.Page("country_clusters.py"), st.Page(dataset)])
+pg = st.navigation([st.Page("display_dataset.py"), st.Page(dataset)])
 pg.run()
 
 
