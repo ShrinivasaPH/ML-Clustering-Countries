@@ -54,10 +54,12 @@ high_child_mort = col2.toggle("High Child Mortality: ")
 #less_life_expectancy = 1
 #high_child_mort = 1
 
+'''
 def reset_inputs():
     for key in st.session_state.keys():
         if key.startswith("input_"):  # Reset only input fields
             st.session_state[key] = 0
+'''
 
 st.subheader("Click the below button to see the country's social status.")
 if st.button("Predict Country Type"):
