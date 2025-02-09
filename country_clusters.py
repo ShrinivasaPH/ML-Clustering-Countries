@@ -18,7 +18,7 @@ scaler = model.scaler
 
 st.title(":blue[Clustering the World-Economy using Machine Learning]")
 st.divider()
-st.image("Thumbnail.jpeg", caption="Clustering", width=2)
+st.image("Thumbnail.jpeg", caption="Clustering", width=200)
 st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
 st.caption("Type or use the buttons.")
