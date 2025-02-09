@@ -18,6 +18,8 @@ scaler = model.scaler
 
 st.title(":blue[Clustering the World-Economy using Machine Learning]")
 st.divider()
+st.image("Thumbnail.jpeg", caption="Clustering")
+st.divider()
 st.header(":blue[**Select socio-economic parameters below:**]")
 st.caption("Type or use the buttons.")
 
@@ -83,7 +85,7 @@ if st.button("Predict Country Type"):
 
 st.divider()
 
-st.image("Thumbnail.jpeg", caption="Clustering")
+
 
 st.divider()
 st.markdown("""
