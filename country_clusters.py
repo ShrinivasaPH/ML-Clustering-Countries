@@ -8,12 +8,6 @@ with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
 scaler = model.scaler
 
-def page_2():
-    st.title("Page 2")
-
-pg = st.navigation([st.Page("page_1.py"), st.Page(page_2)])
-pg.run()
-
 #if st.button("Home"):
 #    st.switch_page("country_clusters.py")
 
