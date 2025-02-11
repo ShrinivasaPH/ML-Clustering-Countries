@@ -21,7 +21,7 @@ st.markdown(
     2. You can either type in values manually or use the step buttons.
     3. Click the **'Predict Country Type'** button to determine the economic cluster.
     4. The model will categorize the input into one of the following clusters:
-       - 🟥 **0 - Poor Nation**
+       - 🟥 **0 - Underdeveloped Nation**
        - 🟩 **1 - Rich Nation**
        - 🟦 **2 - Developing Nation**
     5. The prediction is displayed in a highlighted box below the button.
@@ -84,7 +84,7 @@ if st.button("Predict Country Type"):
                     width: 50%; margin: auto; text-align: center;">
             <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
             <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
-                <li><span style="color: #ff5733; font-weight: bold;">0 - Poor Nation</span> ⚠️ </li>
+                <li><span style="color: #ff5733; font-weight: bold;">0 - Underdeveloped Nation</span> ⚠️ </li>
                 <li><span style="color: #28a745; font-weight: bold;">1 - Rich Nation</span> 💰 </li>
                 <li><span style="color: #007bff; font-weight: bold;">2 - Developing Nation</span> 🌱 </li>
             </ul>
