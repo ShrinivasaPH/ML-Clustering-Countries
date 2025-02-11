@@ -46,6 +46,13 @@ total_fer = col2.slider("Fertility Rate:", 1.1500, 7.490000)
 gdpp = col1.slider("GDPP Rate:", 231.000000, 105000.000000)
 net_export_ratio = col2.slider("Net Export Ratio:", -0.224771, 0.011095)
 
+st.markdown(
+    """ <style> 
+        div[data-testid="stCheckbox"] label { font-size: 18px !important; } 
+    </style> """, 
+    unsafe_allow_html=True
+)
+
 less_earners = col1.checkbox("Less Earners:")
 high_child_mort = col2.checkbox("High Child Mortality:")
 
