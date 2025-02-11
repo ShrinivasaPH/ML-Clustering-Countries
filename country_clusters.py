@@ -22,7 +22,7 @@ st.markdown(
     3. Click the **'Predict Country Type'** button to determine the economic cluster.
     4. The model will categorize the input into one of the following clusters:
        - 🟥 **0 - Underdeveloped Nation**
-       - 🟩 **1 - Rich Nation**
+       - 🟩 **1 - Developed Nation**
        - 🟦 **2 - Developing Nation**
     5. The prediction is displayed in a highlighted box below the button.
     6. ⚠️ **Note:** This tool is for educational purposes only and should not be used for real-world decision-making.
@@ -35,16 +35,16 @@ st.caption("Type or use the buttons.")
 col1, col2 = st.columns(2)
 
 # Slider inputs for the user
-child_mort = col1.number_input("Child Mortality Rate:", 2.6, 208.000000)
-exports = col2.number_input("Export value:", 0.1090, 200.000000)
-health = col1.number_input("Health-Spending Rate:", 1.8100, 17.900000)
-imports = col2.number_input("Import Rate:", 0.0659, 174.000000)
-income = col1.number_input("Income value:", 609.0000, 125000.000000)
-inflation = col2.number_input("Inflation Rate:", -4.2100, 104.000000)
-life_expec = col1.number_input("Life Expectancy Rate:", 32.100000, 82.800000)
-total_fer = col2.number_input("Fertility Rate:", 1.1500, 7.490000)
-gdpp = col1.number_input("GDPP Rate:", 231.000000, 105000.000000)
-net_export_ratio = col2.number_input("Net Export Ratio:", -0.224771, 0.011095)
+child_mort = col1.slider("Child Mortality Rate:", 2.6, 208.000000)
+exports = col2.slider("Export value:", 0.1090, 200.000000)
+health = col1.slider("Health-Spending Rate:", 1.8100, 17.900000)
+imports = col2.slider("Import Rate:", 0.0659, 174.000000)
+income = col1.slider("Income value:", 609.0000, 125000.000000)
+inflation = col2.slider("Inflation Rate:", -4.2100, 104.000000)
+life_expec = col1.slider("Life Expectancy Rate:", 32.100000, 82.800000)
+total_fer = col2.slider("Fertility Rate:", 1.1500, 7.490000)
+gdpp = col1.slider("GDPP Rate:", 231.000000, 105000.000000)
+net_export_ratio = col2.slider("Net Export Ratio:", -0.224771, 0.011095)
 
 less_earners = col1.checkbox("Less Earners:")
 high_child_mort = col2.checkbox("High Child Mortality:")
@@ -85,7 +85,7 @@ if st.button("Predict Country Type"):
             <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
             <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
                 <li><span style="color: #ff5733; font-weight: bold;">0 - Underdeveloped Nation</span> ⚠️ </li>
-                <li><span style="color: #28a745; font-weight: bold;">1 - Rich Nation</span> 💰 </li>
+                <li><span style="color: #28a745; font-weight: bold;">1 - Developed Nation</span> 💰 </li>
                 <li><span style="color: #007bff; font-weight: bold;">2 - Developing Nation</span> 🌱 </li>
             </ul>
         </div>
