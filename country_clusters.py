@@ -8,18 +8,27 @@ with open("gmm_model.pkl", 'rb') as f:
     model = pickle.load(f)
 scaler = model.scaler
 
-#if st.button("Home"):
-#    st.switch_page("country_clusters.py")
-
-    #def country_clusters():
-    #    st.title("Country Clusters")
-    #pg = st.navigation([st.Page("display_dataset.py"), st.Page(country_clusters)])
-    #pg.run()
-
 st.title(":blue[Clustering the World-Economy using Machine Learning]")
 st.divider()
 st.image("Thumbnail.jpeg", caption="Clustering")
 st.divider()
+
+# How to Use Section
+st.subheader("📌 How to Use This App")
+st.markdown(
+    """
+    1. **Select socio-economic parameters** using the input fields below.
+    2. You can either type in values manually or use the step buttons.
+    3. Click the **'Predict Country Type'** button to determine the economic cluster.
+    4. The model will categorize the input into one of the following clusters:
+       - 🟥 **0 - Poor Nation**
+       - 🟩 **1 - Rich Nation**
+       - 🟦 **2 - Developing Nation**
+    5. The prediction is displayed in a highlighted box below the button.
+    6. ⚠️ **Note:** This tool is for educational purposes only and should not be used for real-world decision-making.
+    """
+)
+
 st.header(":blue[**Select socio-economic parameters below:**]")
 st.caption("Type or use the buttons.")
 
@@ -94,4 +103,3 @@ st.markdown("""
     <p>Additionally, for the sake of impartiality and to avoid any potential offense, country names are intentionally omitted from the clustering results. This is to ensure that no individual, group, or nation feels misrepresented or unfairly categorized based on the results. The intention is purely academic and not to make any political, social, or economic statements.</p>
 </div>
 """, unsafe_allow_html=True)
-
