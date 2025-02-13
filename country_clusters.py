@@ -75,26 +75,12 @@ if st.button("Predict Country Type"):
         <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
                     text-align:center; font-size:18px; font-weight:bold; color:black; 
                     width: 40%; margin: auto;">
-            🔮 Predicted Cluster: {pred_label}
+            🔮 Predicted Cluster: <br> {pred_label}
         </div>
         """, unsafe_allow_html=True
     )
 
     st.write(" ")
-
-    st.markdown(
-        """
-        <div style="border: 2px solid #ccc; padding: 10px; border-radius: 10px; background-color: #f9f9f9;
-                    width: 50%; margin: auto; text-align: center;">
-            <h4 style="color: #333;">🌍 Cluster Meanings 🌍</h4>
-            <ul style="list-style-type: none; padding-left: 0; text-align: left; display: inline-block;">
-                <li><span style="color: #ff5733; font-weight: bold;">Underdeveloped Nation</span> ⚠️ </li>
-                <li><span style="color: #28a745; font-weight: bold;">Developed Nation</span> 💰 </li>
-                <li><span style="color: #007bff; font-weight: bold;">Developing Nation</span> 🌱 </li>
-            </ul>
-        </div>
-        """, unsafe_allow_html=True
-    )
 
 st.divider()
 st.markdown("""
