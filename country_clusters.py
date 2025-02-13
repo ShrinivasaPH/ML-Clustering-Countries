@@ -75,7 +75,7 @@ if st.button("Predict Country Type"):
         <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
                     text-align:center; font-size:18px; font-weight:bold; color:black; 
                     width: 40%; margin: auto;">
-            🔮 Predicted Cluster: <br> {pred_label}
+            🔮 {pred_label}
         </div>
         """, unsafe_allow_html=True
     )
