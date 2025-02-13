@@ -97,9 +97,12 @@ if st.button("Predict Country Type"):
     )
 
 st.divider()
-st.markdown("""
 <div style="border: 3px solid #ddd; padding: 10px; background-color: #f9f9f9; border-radius: 5px; font-size: 12px; color: #666;">
     <p style="color:red; font-size: 18px; font-weight: bold;"><strong>Disclaimer:</strong></p> 
-    <p>This application is an <strong>academic project</strong> developed for educational purposes only...</p>
+    <p>This application is an <strong>academic project</strong> developed for educational purposes only. The data used in this project and the clustering results generated are based on a machine learning model trained on a specific dataset.</p>
+    <p><strong>Users should not rely on this application to make any real-world economic, financial, or policy-related decisions.</strong> The results do not represent official classifications, and the accuracy of the predictions is not guaranteed.</p>
+    <p>The creator of this application <strong>bears no responsibility</strong> for any consequences, decisions, or actions taken based on the output of this app. Any inconvenience, loss, or harm resulting from the use of this application is entirely at the user's own risk.</p>
+    <p>By using this app, you acknowledge and agree to the terms of this disclaimer.</p>
+    <p>Additionally, for the sake of impartiality and to avoid any potential offense, country names are intentionally omitted from the clustering results. This is to ensure that no individual, group, or nation feels misrepresented or unfairly categorized based on the results. The intention is purely academic and not to make any political, social, or economic statements.</p>
 </div>
 """, unsafe_allow_html=True)
