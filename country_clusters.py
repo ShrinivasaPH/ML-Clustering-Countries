@@ -68,11 +68,19 @@ if st.button("Predict Country Type"):
     pred = model.predict(user_data_scaled)[0]
     pred_label = cluster_mapping.get(pred, "Unknown")  # Get corresponding label
 
+    # Define background colors based on prediction
+    color_mapping = {
+        "Developed Nation": "#34eb67",  # Green
+        "Developing Nation": "#f7e463",  # Yellow
+        "Underdeveloped Nation": "#eb4034"  # Red
+    }
+    background_color = color_mapping.get(pred_label, "#ffffff")  # Default to white if unknown
+
     st.header("The Country's Cluster based on the selected socio-economic parameters:")
 
     st.markdown(
         f"""
-        <div style="background-color:#34eb67; padding:10px; border-radius:10px; 
+        <div style="background-color:{background_color}; padding:10px; border-radius:10px; 
                     text-align:center; font-size:18px; font-weight:bold; color:black; 
                     width: 40%; margin: auto;">
             🔮 {pred_label}
