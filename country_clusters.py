@@ -72,7 +72,7 @@ if st.button("Predict Country Type"):
 
     st.markdown(
         f"""
-        <div style="background-color:#FFD700; padding:10px; border-radius:10px; 
+        <div style="background-color:#34eb67; padding:10px; border-radius:10px; 
                     text-align:center; font-size:18px; font-weight:bold; color:black; 
                     width: 40%; margin: auto;">
             🔮 {pred_label}
