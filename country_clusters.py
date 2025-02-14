@@ -16,21 +16,21 @@ st.divider()
 st.image("Thumbnail.jpeg", caption="Clustering")
 st.divider()
 
-# How to Use Section
-st.subheader("📌 How to Use This App")
-st.markdown(
-    """
-    1. **Select socio-economic parameters** using the input fields below.
-    2. You can either type in values manually or use the step buttons.
-    3. Click the **'Predict Country Type'** button to determine the economic cluster.
-    4. The model will categorize the input into one of the following clusters:
-       - 🟥 **Underdeveloped Nation**
-       - 🟩 **Developed Nation**
-       - 🟦 **Developing Nation**
-    5. The prediction is displayed in a highlighted box below the button.
-    6. ⚠️ **Note:** This tool is for educational purposes only and should not be used for real-world decision-making.
-    """
-)
+# How to Use Section inside an expandable button
+with st.expander("📌 How to Use This App"):
+    st.markdown(
+        """
+        1. **Select socio-economic parameters** using the input fields below.
+        2. You can either type in values manually or use the step buttons.
+        3. Click the **'Predict Country Type'** button to determine the economic cluster.
+        4. The model will categorize the input into one of the following clusters:
+           - 🟥 **Underdeveloped Nation**
+           - 🟩 **Developed Nation**
+           - 🟦 **Developing Nation**
+        5. The prediction is displayed in a highlighted box below the button.
+        6. ⚠️ **Note:** This tool is for educational purposes only and should not be used for real-world decision-making.
+        """
+    )
 
 st.header(":blue[**Select socio-economic parameters below:**]")
 st.caption("Type or use the buttons.")
